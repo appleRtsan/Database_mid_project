@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}TRANSACTION_TABLE{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+<br/>
+<h1>Transaction</h1>
+
+</div>
+
+<div class = "container" >
+<div class="book_table">
+    <form method="post" action={{ url_for('trans_table') }}>
+      <table cellpadding="10" border='3'>
+        <tr>
+          <th>交易ID</th>
+          <th>客戶ID</th>
+          <th>櫃位ID</th>
+          <th>消費金額</th>
+          <th>付款方式</th>
+          <th>消費時間</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+        {% for trans in trans_data %}
+        <tr>
+          <td> {{ trans.交易ID }}</td>
+          <td> {{ trans.客戶ID }}</td>
+          <td> {{ trans.櫃位ID }}</td>
+          <td> {{ trans.消費金額 }}</td>
+          <td> {{ trans.付款方式 }}</td>
+          <td> {{ trans.消費時間 }}</td>
+          <td> <button type="submit" value="{{trans.交易ID}}" name="add"  class="btn btn-secondary">
+            新增
+          </button></td>
+          <td> <button type="submit" value="{{trans.交易ID}}" name="edit"  class="btn btn-secondary">
+            編輯
+          </button></td>
+          <td> <button type="submit" value="{{trans.交易ID}}" name="delete"  class="btn btn-secondary">
+            刪除
+          </button></td>
+
+
+          <!-- 傳遞商品編號 -->
+        </tr>
+        {% endfor %}
+      </table>
+    </form>
+  </div>
+</div>
+  {% endblock %}

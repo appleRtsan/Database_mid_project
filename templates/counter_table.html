@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}COUNTER_TABLE{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+<br/>
+<h1>COUNTER</h1>
+
+</div>
+
+<div class = "container" >
+<div class="book_table">
+    <form method="post" action={{ url_for('counter_table') }}>
+      <table cellpadding="10" border='3'>
+        <tr>
+          <th>櫃位ID</th>
+          <th>櫃位名稱</th>
+          <th>櫃位抽成</th>
+          <th>櫃位進駐時間</th>
+          <th>櫃位類別</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+        {% for counter in counter_data %}
+        <tr>
+          <td> {{ counter.櫃位ID }}</td>
+          <td> {{ counter.櫃位名稱 }}</td>
+          <td> {{ counter.櫃位抽成 }}</td>
+          <td> {{ counter.櫃位進駐時間 }}</td>
+          <td> {{ counter.櫃位類型 }}</td>
+
+          <td> <button type="submit" value="{{counter.櫃位ID}}" name="add"  class="btn btn-secondary">
+            新增
+          </button></td>
+          <td> <button type="submit" value="{{counter.櫃位ID}}" name="edit"  class="btn btn-secondary">
+            編輯
+          </button></td>
+          <td> <button type="submit" value="{{counter.櫃位ID}}" name="delete"  class="btn btn-secondary">
+            刪除
+          </button></td>
+
+
+          <!-- 傳遞商品編號 -->
+        </tr>
+        {% endfor %}
+      </table>
+    </form>
+  </div>
+</div>
+  {% endblock %}

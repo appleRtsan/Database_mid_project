@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+
+{% block title %}ACTIVITY{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+
+
+<br/>
+
+    <h1>Activity</h1>
+
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('act_table') }}">活動索引表</a></li>
+        <li class="breadcrumb-item active" aria-current="page">新增活動資料</li>
+      </ol>
+    </nav>
+
+    {% if error_statement %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> {{ error_statement  }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+
+
+
+
+<form method="post" action={{ url_for('activity') }}>
+
+
+
+
+        <div class="form-group">
+        <label class="form-label">活動名稱</label>
+        <input type="text" class="form-control" placeholder="請輸入活動名稱" name="A_NAME" value = {{    A_NAME  }} >
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">活動折扣</label>
+        <input type="number"  class="form-control" name="DISCOUNT" value="0" min = "0" max = "1" step = "0.01" placeholder="請輸入折扣趴數" value = {{    DISCOUNT  }}>
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">活動開始時間</label>
+        <input type="date"  class="form-control" name="A_START" placeholder="請選擇日期" value = {{   A_START   }} >
+        </div>
+        <br/>
+
+        <br/>
+        <div class="form-group">
+        <label class="form-label">活動結束時間</label>
+        <input type="date"  class="form-control" name="A_END" placeholder="請選擇日期" value = {{   A_END   }} >
+        </div>
+        <br/>
+
+
+        <br/><br/>
+        <button type="submit" class="btn btn-secondary">新增活動</button>
+
+
+</form>
+
+</div>
+{% endblock %}

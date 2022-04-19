@@ -1,0 +1,55 @@
+
+{% extends 'base.html' %}
+
+{% block title %}ACTIVITY_EDIT{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+
+
+    <br/>
+        <h1>ACTIVITY</h1>
+
+<form method="post" action={{ url_for('act_edit') }}>
+
+      <div class="form-group">
+      <label class="form-label">活動ID</label>
+      <input type="text" value="{{ act.活動ID }}"  name="aid" readonly class="id_input" >
+      </div>
+      <div class="form-group">
+      <label class="form-label">活動名稱</label>
+      <input type="text" class="form-control" placeholder="請輸入活動名稱" name="new_NAME" value = "{{act.活動名稱}}" >
+      </div>
+      <br/>
+      <div class="form-group">
+        <label class="form-label">活動折扣</label>
+        <input type="number"  class="form-control" name="new_DISCOUNT" value="0" min = "0" max = "1" step = "0.01" placeholder="請輸入折扣趴數" value ="{{act.活動折扣}}">
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">活動開始時間</label>
+        <input type="date"  class="form-control" name="new_A_START" placeholder="請選擇日期" value = "{{act.活動開始時間}}" >
+        </div>
+        <br/>
+
+        <br/>
+        <div class="form-group">
+        <label class="form-label">活動結束時間</label>
+        <input type="date"  class="form-control" name="new_A_END" placeholder="請選擇日期" value = "{{act.活動結束時間}}" >
+        </div>
+        <br/>
+
+
+      <br/><br/>
+
+      <div class="btn_div">
+        <button type="submit"  class="btn btn-secondary">確定修改</button>
+        <a href="{{ url_for('act_table') }}"><button type="button"  class="btn btn-secondary">回上一頁</button></a>
+      </div>
+  </form>
+
+
+</div>
+{% endblock %}

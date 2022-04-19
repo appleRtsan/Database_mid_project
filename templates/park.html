@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+{% block title %}PARK{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+
+
+<br/>
+
+    <h1>Park</h1>
+
+    {% if error_statement %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> {{ error_statement  }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+
+
+
+
+<form method="post" action={{ url_for('park') }}>
+
+
+
+
+        <div class="form-group">
+        <label class="form-label">停車編號</label>
+        <input type="text" class="form-control" placeholder="請輸入停車編號" name="PID" value = {{    PID  }} >
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">客戶編號</label>
+        <input type="text" class="form-control" placeholder="請輸入客戶編號" name="CID" value = {{    CID  }} >
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">車種</label>
+        <select  name="CARTYPE">
+          <option value="奔馳">奔馳</option>
+          <option value="福斯">福斯</option>
+          <option value="BMW">BMW</option>
+          <option value="特斯拉">特斯拉</option>
+          <option value="其他">其他</option>
+        </select>
+        <label class="form-label">車型</label>
+        <select  name="CARMODEL">
+          <option value="兩人座">兩人座</option>
+          <option value="四人座">四人座</option>
+          <option value="六人座">六人座</option>
+          <option value="更多人座">更多人座</option>
+        </select>
+
+        </div>
+        <br/>
+
+
+
+        <br/><br/>
+        <button type="submit" class="btn btn-secondary">新增客戶停車資訊</button>
+
+
+</form>
+
+</div>
+{% endblock %}
+

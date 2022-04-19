@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block title %}CUSTOMER{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+
+
+    <br/>
+        <h1>Customer</h1>
+
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('cust_table') }}">客戶索引表</a></li>
+            <li class="breadcrumb-item active" aria-current="page">新增客戶資料</li>
+          </ol>
+        </nav>
+
+
+
+        {% if error_statement %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> {{ error_statement  }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endif %}
+
+
+
+<form method="post" action={{ url_for('customer') }}>
+
+
+      <div class="form-group">
+      <label class="form-label">客戶名稱</label>
+      <input type="text" class="form-control" placeholder="請輸入客戶名稱" name="NAME" value = {{    NAME  }} >
+      </div>
+      <br/>
+      <div class="form-group">
+      <label class="form-label">信箱</label>
+      <input type="email"  class="form-control" name="EMAIL"  placeholder="請輸入信箱" value = {{    EMAIL  }}>
+      </div>
+      <br/>
+      <div class="form-group">
+      <label class="form-label">年齡</label>
+      <input type="number" value="0" min = "0" max = "100" step = "1"  class="form-control" name="AGE" placeholder="請選擇年齡" value = {{   AGE   }} >
+      </div>
+      <br/>
+
+      <br/><br/>
+      <button type="submit" class="btn btn-secondary">新增客戶</button>
+
+  </form>
+
+
+</div>
+{% endblock %}

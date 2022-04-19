@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}ACTIVITY_TABLE{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+<br/>
+<h1>Activity</h1>
+
+</div>
+
+<div class = "container" >
+<div class="book_table">
+    <form method="post" action={{ url_for('act_table') }}>
+      <table cellpadding="10" border='3'>
+        <tr>
+          <th>活動ID</th>
+          <th>活動名稱</th>
+          <th>活動折扣</th>
+          <th>活動開始時間</th>
+          <th>活動結束時間</th>
+          <th></th>
+
+        </tr>
+        {% for act in act_data %}
+        <tr>
+          <td> {{ act.活動ID }}</td>
+          <td> {{ act.活動名稱 }}</td>
+          <td> {{ act.活動折扣 }}</td>
+          <td> {{ act.活動開始時間 }}</td>
+          <td> {{ act.活動結束時間 }}</td>
+
+          <td> <button type="submit" value="{{act.活動ID}}" name="add"  class="btn btn-secondary">
+            新增
+          </button></td>
+          <td> <button type="submit" value="{{act.活動ID}}" name="edit"  class="btn btn-secondary">
+            編輯
+          </button></td>
+          <td> <button type="submit" value="{{act.活動ID}}" name="delete"  class="btn btn-secondary">
+            刪除
+          </button></td>
+
+
+          <!-- 傳遞商品編號 -->
+        </tr>
+        {% endfor %}
+      </table>
+    </form>
+  </div>
+</div>
+  {% endblock %}

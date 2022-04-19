@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{% block title %}TRANSACTION_EDIT{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+
+
+    <br/>
+        <h1>TRANSACTION</h1>
+
+<form method="post" action={{ url_for('trans_edit') }}>
+
+      <div class="form-group">
+      <label class="form-label">交易ID</label>
+      <input type="text" value="{{ trans.交易ID }}"  name="tid" readonly class="id_input" >
+      </div>
+      <div class="form-group">
+      <label class="form-label">客戶ID</label>
+      <input type="text" class="form-control" placeholder="請輸入客戶ID" name="new_CID" value = "{{trans.客戶ID}}" >
+      </div>
+      <br/>
+      <div class="form-group">
+        <label class="form-label">櫃位ID</label>
+        <input type="text" class="form-control" placeholder="請輸入櫃位ID" name="new_COID" value = "{{trans.櫃位ID}}" >
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">消費金額</label>
+        <input type="number" value="0" min = "0" max = "1000000" step = "1" class="form-control" placeholder="請輸入消費金額" name="new_AMOUNT"   value = "{{trans.消費金額}}">
+        </div>
+        <br/>
+        <div class="form-group">
+        <label class="form-label">付款方式</label>
+          <select  name="new_PAY_TYPE">
+            <option value="信用卡">信用卡</option>
+            <option value="現金">現金</option>
+            <option value="禮卷">禮卷</option>
+            <option value="電子支付">電子支付</option>
+            <option value="商品卷">商品卷</option>
+          </select>
+
+          </div>
+
+
+      <br/><br/>
+
+      <div class="btn_div">
+        <button type="submit"  class="btn btn-secondary">確定修改</button>
+        <a href="{{ url_for('trans_table') }}"><button type="button"  class="btn btn-secondary">回上一頁</button></a>
+      </div>
+  </form>
+
+
+</div>
+{% endblock %}

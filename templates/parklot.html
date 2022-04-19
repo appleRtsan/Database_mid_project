@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}PARKLOT{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+
+
+
+
+<br/>
+
+    <h1>Parklot</h1>
+
+    {% if error_statement %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> {{ error_statement  }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endif %}
+
+
+
+
+<form method="post" action={{ url_for('parklot') }}>
+
+
+
+
+        <div class="form-group">
+        <label class="form-label">剩餘車位數</label>
+
+        <input type="number" value="0" min = "0" max = "300" step = "1"  class="form-control" name="REMAINING"  value = {{   REMAINING   }} >
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <label class="form-label" >停車場區域</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="AREA_LETTER" id="inlineRadio1" value="A">
+          <label class="form-check-label" for="inlineRadio1">A</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="AREA_LETTER" id="inlineRadio2" value="B">
+          <label class="form-check-label" for="inlineRadio2">B</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="AREA_LETTER" id="inlineRadio2" value="C">
+          <label class="form-check-label" for="inlineRadio2">C</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="AREA_LETTER" id="inlineRadio2" value="D">
+          <label class="form-check-label" for="inlineRadio2">D</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="AREA_LETTER" id="inlineRadio2" value="E">
+          <label class="form-check-label" for="inlineRadio2">E</label>
+        </div>
+        <br/>
+
+        <div class="form-group">
+        <label class="form-label">停車場編號</label>
+        <input type="number" value="1" min = "1" max = "50" step = "1"  class="form-control" name="NUMBER"  value = {{   NUMBER   }} >
+        </div>
+        <br/>
+
+        <br/><br/>
+        <button type="submit" class="btn btn-secondary">新增停車資訊</button>
+
+
+</form>
+
+</div>
+{% endblock %}

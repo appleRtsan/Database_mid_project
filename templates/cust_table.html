@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}CUSTOMER_TABLE{% endblock %}
+
+{% block content %}
+
+<div class = "container" >
+
+<br/>
+<h1>Customer</h1>
+
+</div>
+
+<div class = "container" >
+<div class="book_table">
+    <form method="post" action={{ url_for('cust_table') }}>
+      <table cellpadding="10" border='3'>
+        <tr>
+          <th>客戶ID</th>
+          <th>客戶名稱</th>
+          <th>客戶信箱</th>
+          <th>客戶年紀</th>
+          <th>客戶上次消費日期</th>
+          <th>客戶上次消費時間</th>
+          <th></th>
+          <th></th>
+
+        </tr>
+        {% for cust in cust_data %}
+        <tr>
+          <td> {{ cust.客戶ID }}</td>
+          <td> {{ cust.客戶名稱 }}</td>
+          <td> {{ cust.客戶信箱 }}</td>
+          <td> {{ cust.客戶年紀 }}</td>
+          <td> {{ cust.客戶上次消費日期 }}</td>
+          <td> {{ cust.客戶上次消費時間 }}</td>
+          <td> <button type="submit" value="{{cust.客戶ID}}" name="add"  class="btn btn-secondary">
+            新增
+          </button></td>
+          <td> <button type="submit" value="{{cust.客戶ID}}" name="edit"  class="btn btn-secondary">
+            編輯
+          </button></td>
+          <td> <button type="submit" value="{{cust.客戶ID}}" name="delete"  class="btn btn-secondary">
+            刪除
+          </button></td>
+
+
+          <!-- 傳遞商品編號 -->
+        </tr>
+        {% endfor %}
+      </table>
+    </form>
+  </div>
+</div>
+  {% endblock %}
