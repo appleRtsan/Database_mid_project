@@ -1,9 +1,13 @@
 # Database_mid_project
  
-## This Database is design for department store backend usage.
+## This Website is design for department store backend usage.
 
 ### Usage
-Just clone the project and execute the python file "start.py".
+
+Just clone the project and modify the python file "start.py", Line 16.
 
 
-It will generate the local website.
+Alter the path of the instantclient to your oracle instantclient path.
+
+
+After altering, run this python file in command or terminal. It will generate the local website.
